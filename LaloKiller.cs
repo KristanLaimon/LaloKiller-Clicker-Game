@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.IO;
 
 namespace Cyan
 {
@@ -12,6 +13,7 @@ namespace Cyan
 
         Texture2D targetSprite, crosshairSprite, backgroundSprite;
         SpriteFont sf;
+        
 
         Vector2 targetPosition = new Vector2(300, 300);
         const int targetradio = 60;
@@ -39,6 +41,10 @@ namespace Cyan
             _graphics.ApplyChanges();
             windowWidth = _graphics.PreferredBackBufferWidth;
             windowHeight = _graphics.PreferredBackBufferHeight;
+            Window.Title = "Lalo Killer Beta V0.1.0";
+            //using (FileStream fs = new FileStream(@"Content\target.ico", FileMode.Open))
+            //{
+            //}
             base.Initialize();
         }
 
@@ -55,6 +61,7 @@ namespace Cyan
 
         protected override void Update(GameTime gameTime)
         {
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
